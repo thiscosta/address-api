@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha test/**/*.test.js --timeout 100000",
+    "test": "mocha test/services/*.test.js test/util/*.test.js --timeout 100000",
+    "integration_tests": "mocha test/integration/**/*.test.js --timeout 100000",
     "dev": "nodemon index.js"
   },
   "keywords": [],
@@ -14,6 +15,7 @@
   "dependencies": {
     "body-parser": "1.19.0",
     "cep-promise": "4.0.0",
+    "chai-http": "4.3.0",
     "cors": "2.8.5",
     "dotenv-safe": "8.2.0",
     "express": "4.17.1",

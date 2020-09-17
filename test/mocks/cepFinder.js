@@ -1,6 +1,5 @@
 import sinon from "sinon";
 import cep from "cep-promise";
-import CepService from "../../src/services/cep.js";
 
 export const fakeValues = [
   {
