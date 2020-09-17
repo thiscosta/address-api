@@ -56,7 +56,7 @@ Após instalar essas dependências, siga o passo a passo abaixo:
 
 <br>
 
-*   Clone o repositório com o comando **git clone https://github.com/thiscosta/projeto-luizalabs.git**
+*   Clone o repositório com o comando **git clone https://github.com/thiscosta/address-api.git**
 
 *   Instale as dependências do projeto utilizando o comando **npm install** ou **yarn**, de acordo com seu gerenciador de pacotes
 
