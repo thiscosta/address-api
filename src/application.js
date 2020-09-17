@@ -1,6 +1,7 @@
 import express from "express";
 import dotenvSafe from "dotenv-safe";
 import bodyParser from "body-parser";
+import passport from './authentication/passport.js'
 
 import mapRoutes from './routes/index.js'
 
@@ -29,7 +30,8 @@ class Application {
   }
 
   routes() {
-    mapRoutes({ app: this.app })
+
+    mapRoutes({ app: this.app, passport })
   }
 
   start() {
