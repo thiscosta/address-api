@@ -5,10 +5,12 @@ import CepController from "../controllers/cep.js";
 import checkIfRequestHasErrors from "../validators/index.js";
 import { cepQueryValidations } from "../validators/cep.js";
 
-var router = express.Router();
+const cepController = new CepController()
+
+const router = express.Router();
 
 router
   .route("/")
-  .get(cepQueryValidations, checkIfRequestHasErrors, CepController.findAddress);
+  .get(cepQueryValidations, checkIfRequestHasErrors, cepController.findAddress);
 
 export default router;
