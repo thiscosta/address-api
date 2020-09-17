@@ -30,7 +30,6 @@ class Application {
   }
 
   routes() {
-
     mapRoutes({ app: this.app, passport })
   }
 

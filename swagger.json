@@ -1,0 +1,152 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Documentação da API de busca de endereços - Luizalabs",
+    "description": "API para busca de endereço via CEP",
+    "termsOfService": "",
+    "contact": {
+      "name": "Thiago Costa",
+      "email": "thiscosta@live.com",
+      "url": "https://www.linkedin.com/in/thiscosta00/"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/",
+      "description": "Local server",
+      "variables": {
+        "env": {
+          "PORT": 3000
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "Endereco": {
+        "type": "object",
+        "properties": {
+          "cep": {
+            "type": "string",
+            "description": "O CEP final que foi consultado na base de dados"
+          },
+          "state": {
+            "type": "string",
+            "description": "Estado do CEP"
+          },
+          "city": {
+            "type": "string",
+            "description": "Cidade do CEP"
+          },
+          "neighborhood": {
+            "type": "string",
+            "description": "Bairro do CEP"
+          },
+          "street": {
+            "type": "string",
+            "description": "Rua do CEP"
+          },
+          "service": {
+            "type": "string",
+            "description": "Serviço que disponibilizou os dados"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Endereços"
+    }
+  ],
+  "paths": {
+    "/cep": {
+      "get": {
+        "tags": ["Endereços"],
+        "description": "Retorna os dados de endereço de acordo com o CEP informado via query, retornando o modelo 'Endereco' descrito nos modelos",
+        "operationId": "getAddres",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "number",
+            "schema": {
+              "type": "integer"
+            },
+            "required": "true",
+            "description": "Os 8 digitos numéricos do CEP que deseja obter o endereço"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados de endereço do CEP informado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Endereco"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Usuário e senha não informados via authentication basic",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": "Unauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "CEP não encontrando na base de dados"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Endereco": {
+      "type": "object",
+      "properties": {
+        "cep": {
+          "type": "string",
+          "example": "13184350"
+        },
+        "state": {
+          "type": "string",
+          "example": "SP"
+        },
+        "city": {
+          "type": "string",
+          "example": "Hortolândia"
+        },
+        "neighborhood": {
+          "type": "string",
+          "example": "Loteamento Remanso Campineiro"
+        },
+        "street": {
+          "type": "string",
+          "example": "Rua Luiza Lopes Garcia"
+        },
+        "service": {
+          "type": "string",
+          "example": "brasilapi"
+        }
+      },
+      "required": ["cep", "state", "city", "service"]
+    }
+  }
+}

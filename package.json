@@ -7,7 +7,7 @@
   "scripts": {
     "test": "mocha test/services/*.test.js test/util/*.test.js --timeout 100000",
     "integration_tests": "mocha test/integration/**/*.test.js --timeout 100000",
-    "dev": "nodemon index.js"
+    "dev": "nodemon --experimental-json-modules index.js"
   },
   "keywords": [],
   "author": "thiscosta",
@@ -21,7 +21,8 @@
     "express": "4.17.1",
     "express-validator": "6.6.1",
     "passport": "^0.4.1",
-    "passport-http": "^0.3.0"
+    "passport-http": "^0.3.0",
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "chai": "4.2.0",
