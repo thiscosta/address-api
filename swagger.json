@@ -63,7 +63,8 @@
   },
   "tags": [
     {
-      "name": "Endereços"
+      "name": "Endereços",
+      "name": "Métricas"
     }
   ],
   "paths": {
@@ -114,6 +115,18 @@
             "description": "CEP não encontrando na base de dados"
           }
         }
+      }
+    },
+    "/metrics": {
+      "get": {
+        "tags": ["Métricas"],
+        "description": "Retorna as métricas da aplicação e o status do serviço",
+        "operationId": "metrics",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
       }
     }
   },

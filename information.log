@@ -1,0 +1,2 @@
+{"request_id":"54202112-6ded-4269-b7cb-9231c3327d06","message":"NEW REQUEST FROM localhost FOR ROUTE /cep?number=13184350","tag":"cep_request","status":"new","datetime":"17/09/2020 02:39:05.979","level":"info"}
+{"request_id":"54202112-6ded-4269-b7cb-9231c3327d06","message":"CEP 13184350 WAS FOUND","tag":"cep_request","status":"success","datetime":"17/09/2020 02:39:06.090","level":"info"}
